@@ -9,59 +9,65 @@ window.addEventListener('DOMContentLoaded', (event) => {
             nameError.textContent="";
             return;
         }
-        if(names.length==2){
-            let nameRegex=RegExp('^[A-Z][a-z]{2,}$');
-            if(!nameRegex.test(names[0])) nameError.textContent="First name is Incorrect";
-            if(!nameRegex.test(names[1])) nameError.textContent="Last name is Incorrect";
-            if(nameRegex.test(names[0])&& nameRegex.test(names[1])) nameError.textContent="";
-        }
-        else{
-            let nameRegex=RegExp('^[A-Z][a-z]{2,}$');
-            if(!nameRegex.test(names[0])) nameError.textContent="First Name is Invalid";
-            else nameError.textContent="";
+        try{
+            (new AddressBook()).fullName=name.value;
+            nameError.textContent="";
+        }catch(e){
+           nameError.textContent=e;
         }
     })
 
      const addressElement=document.querySelector('#address');
      const addressError=document.querySelector('.address-error');
      addressElement.addEventListener('input',function(){
-         let address=document.querySelector('#address').value;
-         let words=address.split(" ");
-         if(words.length>1){
-             let addressRegex=RegExp('^[A-Za-z,.0-9]{3,}$');
-             for(word of words){
-                 if(!addressRegex.test(word)) addressError.textContent="Please enter atleast 3 letters";
-                 else addressError.textContent="";
-             }
+         try{
+             (new AddressBook()).address=addressElement.value;
+             addressError.textContent="";
+         }catch(e){
+             addressError.textContent=e;
          }
-         else addressError.textContent="Please enter multiple words";
      })
 
     const phoneElement=document.querySelector('#mobile');
     const phoneError=document.querySelector('.mobile-error');
     phoneElement.addEventListener('input',function(){
-        let phone=document.querySelector('#mobile').value;
-        let phoneRegex1=RegExp('^[1-9][0-9]{9}$');
-        let phoneRegex2=RegExp('^[0-9]{2}[1-9][0-9]{9}$');
-        let phoneRegex3=RegExp('^[+][0-9]{2}[1-9][0-9]{9}$');
-        if(phoneRegex1.test(phone)||phoneRegex2.test(phone)||phoneRegex3.test(phone)) phoneError.textContent="";
-        else phoneError.textContent="Phone number is Incorrect";
+        try{
+            (new AddressBook()).mobileNumber=phoneElement.value;
+            phoneError.textContent="";
+        }catch(e){
+            phoneError.textContent=e;
+        }
     })
 
   });
 
   const saveForm=(event)=>{
-      createAddressBookData();
+      try{
+        let addressBookData=createAddressBookData();
+        createAndUpdateStorage(addressBookData);
+      }catch(e){
+          console.log(e);
+          return;
+      }
+    
   }
 
   const createAddressBookData=()=>{
-      const addressBook={
-          "fullName":document.querySelector('#name').value,
-          "mobileNumber":document.querySelector('#mobile').value,
-          "address":document.querySelector('#address').value,
-          "city":document.querySelector('#city').value,
-          "state":document.querySelector('#state').value,
-          "zip":document.querySelector('#zip').value
-      }
-      alert(JSON.stringify(addressBook));
+    let addressBook=new AddressBook();
+    addressBook.fullName=document.querySelector('#name').value,
+    addressBook.mobileNumber=document.querySelector('#mobile').value,
+    addressBook.address=document.querySelector('#address').value,
+    addressBook.city=document.querySelector('#city').value,
+    addressBook.state=document.querySelector('#state').value,
+    addressBook.zip=document.querySelector('#zip').value
+    alert(JSON.stringify(addressBook));
+    return addressBook;
   }
+
+   const createAndUpdateStorage=(addressBookData)=>{
+       let addressBookList=JSON.stringify(localStorage.getItem("AddressBookList"));
+       if(addressBookList != "null") addressBookList.push(addressBookData);
+       else addressBookList=[addressBookData];
+       alert(addressBookList.toString());
+       localStorage.setItem("AddressBookList",JSON.stringify(addressBookList));
+   }
