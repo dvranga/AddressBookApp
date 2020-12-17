@@ -81,19 +81,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
         setValue('#zip','');
     }
 
-
-    // const unsetSelectedValues=(propertyValue)=>{
-    //     let allItmes=document.querySelectorAll(propertyValue);
-    //     allItmes.forEach(item=>{
-    //         item.checked=false;
-    //     });
-    // }
-    
-    // const setTextValue=(id,value)=>{
-    //     const element=document.querySelector(id);
-    //     element.textContent=value;
-    // }
-
     const setValue=(id,value)=>{
         document.querySelector(id).value=value;
     }
