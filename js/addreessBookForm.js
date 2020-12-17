@@ -49,3 +49,19 @@ window.addEventListener('DOMContentLoaded', (event) => {
     })
 
   });
+
+  const saveForm=(event)=>{
+      createAddressBookData();
+  }
+
+  const createAddressBookData=()=>{
+      const addressBook={
+          "fullName":document.querySelector('#name').value,
+          "mobileNumber":document.querySelector('#mobile').value,
+          "address":document.querySelector('#address').value,
+          "city":document.querySelector('#city').value,
+          "state":document.querySelector('#state').value,
+          "zip":document.querySelector('#zip').value
+      }
+      alert(JSON.stringify(addressBook));
+  }
