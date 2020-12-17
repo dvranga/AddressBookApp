@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Address Book App</title>
+    <script src="../js/addreessBookForm.js"></script>
     <link rel="stylesheet" href="../css/addressBookForm.css">
 </head>
 <body>
@@ -31,42 +32,47 @@
             <div class="row-content">
                 <label class="label text" for="name">Full Name</label>
                 <input class="input" type="text" name="name" id="name" placeholder="Enter your full name here " required>
-                <error-output class="text-error" for="name"></error-output>
+                <error-output class="name-error" for="name"></error-output>
             </div>
             <div class="row-content">
                 <label class="label text" for="number">Mobile Number</label>
                 <input class="input" type="number" name="mobile" id="mobile" placeholder="Enter your mobile Number here " required>
-                <error-output class="number-error" for="mobile"></error-output>
+                <error-output class="mobile-error" for="mobile"></error-output>
             </div>
             <div class="row-content address-label">
                 <label class="label text" for="address">Address</label>
                 <textarea class="input address-text" type="text" name="address" id="address" placeholder="Enter your address here" required ></textarea>
+                <error-output class="address-error" for="address"></error-output>
             </div>
-            <div class="select-elements">
-                <div name="city" id="city" class="city">
-                    <label for="city" class="label text">City</label>
-                    <select class="select" name="city" id="city">
-                        <option value="" disabled selected hidden>Select City</option>
-                        <option value="Delhi">Delhi</option>
-                        <option value="Mumbai">Mumbai</option>
-                        <option value="Chennai">Chennai</option>
-                        <option value="Bangalore">Bangalore</option>
-                    </select>
-                </div>
-                <div name="state" id="state" class="state">
-                    <label for="state" class="label text">State</label>
-                    <select class="select" name="state" id="state">
-                        <option value="" disabled selected hidden>Select State</option>
-                        <option value="AndhraPradesh">AndhraPradesh</option>
-                        <option value="Karnataka">Karnataka</option>
-                        <option value="Kerala">Kerala</option>
-                        <option value="Gujarat">Gujarat</option>
-                    </select>
-                </div>
-                <div name="zip" id="zip" class="zip">
-                    <label for="zip" class="label text">Zip Code</label>
-                    <input class="select" type="number" name="zip" id="zip">
-                </div>
+            <div class="row-content-exp">
+                <div class="oneRow-content">
+                <label class="label text" for="city">City</label>
+                <select class="select-input" required>
+                  <option value="" selected disabled hidden>Select City</option>
+                  <option value="Amaravathi">Amaravathi</option>
+                  <option value="Hyderabad">Hyderabad</option>
+                  <option value="Chennai">Chennai</option>
+                  <option value="Bangalore">Bangalore</option>
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Bhopal">Bhopal</option>
+                </select>
+              </div>
+              <div class="oneRow-content">
+                <label class="label text" for="state">State</label>
+                <select class="select-input" required>
+                  <option value="" selected disabled hidden>Select State</option>
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Telanagana">Telanagana</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Madhya Pradesh">Madhya Pradesh</option>
+                </select>
+              </div>
+              <div class="oneRow-content">
+                <label class="label text" for="zip">Zip</label>
+                <input class="input" type="text" name="Zip" id="zip" required>
+              </div>
             </div>
         </form>
     </div>
