@@ -49,7 +49,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const phoneElement = document.querySelector('#mobile');
     const phoneError = document.querySelector('.mobile-error');
     phoneElement.addEventListener('input', function() {
-      let phone = document.querySelector('#phone').value;
+      let phone = document.querySelector('#mobile').value;
       let phoneRegex1 = RegExp('^[1-9][0-9]{9}$');
       let phoneRegex2 = RegExp('^[0-9]{2}[1-9][0-9]{9}$');
       let phoneRegex3 = RegExp('^[+][0-9]{2}[1-9][0-9]{9}$');
