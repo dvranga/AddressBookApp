@@ -71,3 +71,29 @@ window.addEventListener('DOMContentLoaded', (event) => {
        alert(addressBookList.toString());
        localStorage.setItem("AddressBookList",JSON.stringify(addressBookList));
    }
+
+    const resetForm=()=>{
+        setValue('#name','');
+        setValue('#mobile','');
+        setValue('#address','');
+        setValue('#city','');
+        setValue('#state','');
+        setValue('#zip','');
+    }
+
+
+    // const unsetSelectedValues=(propertyValue)=>{
+    //     let allItmes=document.querySelectorAll(propertyValue);
+    //     allItmes.forEach(item=>{
+    //         item.checked=false;
+    //     });
+    // }
+    
+    // const setTextValue=(id,value)=>{
+    //     const element=document.querySelector(id);
+    //     element.textContent=value;
+    // }
+
+    const setValue=(id,value)=>{
+        document.querySelector(id).value=value;
+    }
