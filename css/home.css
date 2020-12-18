@@ -117,15 +117,22 @@ th {
 }
 
 th {
-  background: #42515f 0% 0% no-repeat padding-box;
+  /* background: transparent 0% 0% no-repeat padding-box;
   border-radius: 3px 3px 0px 0px;
   text-align: left;
   font: normal normal medium 18px/24px Roboto;
   letter-spacing: 0px;
-  color: #ffffff;
+  color: #658292;
   text-transform: uppercase;
   opacity: 1;
-  border: 0px solid #dddddd;
+  border: 0px solid #dddddd; */
+
+  text-align: left;
+  font: normal normal bold 18px/22px Lato;
+  letter-spacing: 0px;
+  color: #658292;
+  text-transform: capitalize;
+  opacity: 1;
 }
 
 tr:not(:first-child) {
