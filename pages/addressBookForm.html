@@ -7,8 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Address Book App</title>
-    <script src="../js/addreessBookForm.js"></script>
-    <script src="../js/AddressBook.js"></script>
     <link rel="stylesheet" href="../css/addressBookForm.css">
 </head>
 <body>
@@ -23,7 +21,7 @@
     </header>
 
     <div id="formId" class="form-content">
-        <form class="form" action="#" onreset="resetForm()" onsubmit="saveForm()">
+        <form class="form" action="#" onreset="resetForm()" onsubmit="saveForm(event)">
             <div class="address-header">
                 <div class="address-header-content">Person Address Form</div>
                 <a href="../pages/home.html"><img class="cancel-button" src="../assets/images/cancel.jpeg"></a>
@@ -80,6 +78,9 @@
                     <button type="button" onclick="resetForm()" class="resetButton button">Reset</button>
                 </div>
         </form>
+        <script src="../js/addreessBookForm.js"></script>
+        <script src="../js/AddressBook.js"></script>
+        <script src="../js/siteProperties.js"></script>
     </div>
 </body>
 </html>
