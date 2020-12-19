@@ -1,4 +1,3 @@
-
 window.addEventListener('DOMContentLoaded', (event) => {
 
     const name=document.querySelector('#name');
@@ -64,9 +63,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
     return addressBook;
   }
 
-   const createAndUpdateStorage=(addressBookData)=>{
-       let addressBookList=JSON.stringify(localStorage.getItem("AddressBookList"));
-       if(addressBookList != "null") addressBookList.push(addressBookData);
+    function createAndUpdateStorage(addressBookData){
+       let addressBookList=JSON.parse(localStorage.getItem("AddressBookList"));
+       if(addressBookList != undefined) addressBookList.push(addressBookData);
        else addressBookList=[addressBookData];
        alert(addressBookList.toString());
        localStorage.setItem("AddressBookList",JSON.stringify(addressBookList));
